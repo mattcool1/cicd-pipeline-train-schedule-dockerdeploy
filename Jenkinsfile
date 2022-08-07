@@ -16,7 +16,6 @@ pipeline {
                 echo 'Running docker image creation'
                 script {
                     app = docker.build("mattcool1/train-schedule")
-                    }
                 }
             }
         }
