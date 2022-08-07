@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'worker1'}
+    agent {label 'worker3'}
     stages {
         stage('Build') {
             steps {
@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("train-schedule")
+                    app = docker.build("mattcool1/train-schedule")
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
