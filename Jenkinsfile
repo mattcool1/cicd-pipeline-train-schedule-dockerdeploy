@@ -1,4 +1,9 @@
 pipeline {
+   environment {
+     imagename = "mattcool1/train-schedule"
+     registryCredential = 'docker_hub_login'
+     app = ''
+    }
     agent {label 'worker1'}
     stages {
         stage('Build') {
@@ -15,7 +20,7 @@ pipeline {
             steps {
                 echo 'Running docker image creation!'
                 script {
-                    app = docker.build trainSchedule
+                    app = docker.build imagename
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
 					}
