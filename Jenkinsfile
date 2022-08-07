@@ -15,7 +15,10 @@ pipeline {
             steps {
                 echo 'Running docker image creation!'
                 script {
-                    app = docker.build train-schedule
+                    app = docker.build trainSchedule
+                    app.inside {
+                        sh 'echo $(curl localhost:8080)'
+					}
                 }
             }
         }
