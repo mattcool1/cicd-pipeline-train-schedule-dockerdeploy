@@ -4,7 +4,7 @@ pipeline {
      registryCredential = 'docker_hub_login'
      app = ''
     }
-    agent {label 'worker1'}
+    agent {label 'worker3'}
     stages {
         stage('Build') {
             steps {
